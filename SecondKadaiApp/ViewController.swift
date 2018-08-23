@@ -10,6 +10,9 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var name: UITextField!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -21,5 +24,15 @@ class ViewController: UIViewController {
     }
 
 
+    @IBAction func BackFirst(_segue: UIStoryboardSegue){
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender:Any?){
+        //遷移先のSecondViewControllerを取得
+        let secondViewController: SecondViewController = segue.destination as! SecondViewController
+        //nameの値を渡す
+        secondViewController.username = name.text!
+    }
+    
 }
 
